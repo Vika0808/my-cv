@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viktoriia Oryshchyn - Technical 3D Artist</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0b0e14;
+            --card-bg: #171c26;
+            --accent: #6366f1;
+            --accent-hover: #4f46e5;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            background-image: 
+                radial-gradient(circle at 10% 10%, #1e1b4b 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, #312e81 0%, transparent 40%);
+            color: var(--text-main);
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .cv-card {
+            max-width: 1000px;
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Оновлені стилі кнопок для мобільних */
+        .file-buttons {
+            padding: 30px 40px 0;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 14px 28px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            min-width: 180px; /* Щоб кнопка була зручною для натискання */
+        }
+
+        .btn:active {
+            transform: scale(0.98); /* Ефект натискання на телефоні */
+        }
+
+        .btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+        }
+
+        header {
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            display: flex;
+            align-items: center;
+            gap: 35px;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .name-box h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #fff;
+        }
+
+        .name-box p {
+            font-size: 1.2rem;
+            color: var(--accent);
+            font-weight: 600;
+            margin: 5px 0 15px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            font-size: 0.9rem;
+            color: var(--text-dim);
+        }
+
+        .content {
+            display: flex;
+            padding: 40px;
+            gap: 50px;
+        }
+
+        aside {
+            width: 300px;
+            flex-shrink: 0;
+        }
+
+        main {
+            flex-grow: 1;
+        }
+
+        h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent);
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .tag-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 35px;
+        }
+
+        .tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--glass-border);
+            padding: 6px 12px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+        }
+
+        .pipeline-table {
+            width: 100%;
+            margin-bottom: 35px;
+        }
+
+        .pipeline-row {
+            display: flex;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .pipeline-label {
+            width: 160px;
+            font-weight: 700;
+            color: var(--text-main);
+            flex-shrink: 0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .pipeline-label::before {
+            content: "▹";
+            color: var(--accent);
+            margin-right: 8px;
+        }
+
+        .pipeline-desc {
+            color: var(--text-dim);
+            flex-grow: 1;
+        }
+
+        .experience-item {
+            margin-bottom: 30px;
+            padding-left: 20px;
+            border-left: 2px solid var(--accent);
+            position: relative;
+        }
+
+        .experience-item h3 {
+            margin: 0;
+            font-size: 1.15rem;
+            color: #fff;
+        }
+
+        .experience-item .sub {
+            color: var(--accent);
+            font-size: 0.9rem;
+            margin: 4px 0;
+            font-weight: 600;
+        }
+
+        .experience-item .date {
+            font-size: 0.85rem;
+            color: var(--text-dim);
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+
+        .experience-item p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin: 8px 0 0;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 900px) {
+            .content { flex-direction: column; }
+            aside { width: 100%; }
+            header { flex-direction: column; text-align: center; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .pipeline-row { flex-direction: column; margin-bottom: 15px; }
+            .pipeline-label { width: 100%; margin-bottom: 4px; }
+            .file-buttons { justify-content: center; padding: 25px 20px 0; gap: 10px; }
+            .btn { width: 100%; } /* На маленьких екранах кнопки на всю ширину */
+        }
+    </style>
+</head>
+<body>
+
+<div class="cv-card">
+    <div class="file-buttons">
+        <a href="portfolio.html" class="btn" download="portfolio.html">
+            <span>🎨</span> View Portfolio
+        </a>
+        <a href="CV_Oryshchyn_Viktoriia.pdf" class="btn btn-outline" download="CV_Oryshchyn_Viktoriia.pdf" target="_blank">
+            <span>📄</span> Download CV (PDF)
+        </a>
+    </div>
+
+    <header>
+        <div class="name-box">
+            <h1>Viktoriia Oryshchyn</h1>
+            <p>3D Artist</p>
+            <div class="contact-grid">
+                <div>📍 Lviv, Ukraine</div>
+                <div>📧 toraline77@gmail.com</div>
+                <div>📞 0977464615</div>
+                <div>🌍 English: B2 (Upper-Intermediate)</div>
+            </div>
+        </div>
+    </header>
+
+    <div class="content">
+        <aside>
+            <section>
+                <h2>Summary</h2>
+                <p style="font-size: 0.95rem; color: var(--text-dim); line-height: 1.7; margin-bottom: 35px;">
+                    3D Artist with a focus on technical quality and optimization. My academic background in Computer Science allows me to bridge the gap between artistic vision and the technical requirements of game engines. I specialize in creating game-ready assets following a full industry pipeline. Proficiency in programming (Python, JS) enables me to better understand development logic and collaborate effectively with technical teams.
+                </p>
+            </section>
+
+            <section>
+                <h2>Tools & Software</h2>
+                <div class="tag-group">
+                    <span class="tag">Blender</span>
+                    <span class="tag">Marmoset Toolbag</span>
+                    <span class="tag">Adobe Substance 3D</span>
+                    <span class="tag">Unity</span>
+                    <span class="tag">VS Code</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>Development</h2>
+                <div class="tag-group">
+                    <span class="tag">Python</span>
+                    <span class="tag">JavaScript</span>
+                    <span class="tag">Node.js</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>Soft Skills</h2>
+                <div class="tag-group">
+                    <span class="tag">Teamwork</span>
+                    <span class="tag">Responsibility</span>
+                    <span class="tag">Problem Solving</span>
+                    <span class="tag">Adaptability</span>
+                </div>
+            </section>
+
+            <section>
+                <h2>GameDev Interests</h2>
+                <div class="tag-group">
+                    <span class="tag">Horror</span>
+                    <span class="tag">Visual Novels</span>
+                    <span class="tag">Environment Design</span>
+                    <span class="tag">Story-driven Games</span>
+                </div>
+            </section>
+        </aside>
+
+        <main>
+            <section>
+                <h2>Technical Pipeline</h2>
+                <div class="pipeline-table">
+                    <div class="pipeline-row">
+                        <div class="pipeline-label">Draft & Blockout</div>
+                        <div class="pipeline-desc">Creating base shapes and silhouettes of objects.</div>
+                    </div>
+                    <div class="pipeline-row">
+                        <div class="pipeline-label">Hi-poly / Sculpt</div>
+                        <div class="pipeline-desc">High-detail modeling and organic sculpting.</div>
+                    </div>
+                    <div class="pipeline-row">
+                        <div class="pipeline-label">Retopology & UV</div>
+                        <div class="pipeline-desc">Creating optimized topology and efficient UV layouts.</div>
+                    </div>
+                    <div class="pipeline-row">
+                        <div class="pipeline-label">Baking & Texturing</div>
+                        <div class="pipeline-desc">Map baking (Marmoset) and PBR material creation (Substance).</div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Professional Experience</h2>
+                <div class="experience-item">
+                    <h3>3D Artist (Freelance)</h3>
+                    <div class="sub">Game Asset Development</div>
+                    <p>Designed and executed the full development cycle of a jewelry 3D model: from initial sculpting to final rendering.</p>
+                </div>
+                <div class="experience-item">
+                    <h3>Night Administrator</h3>
+                    <div class="sub">Constellation 91</div>
+                    <div class="date">Aug 2024 — Jan 2025</div>
+                    <p>Coordinated internal processes, managed documentation, and ensured operational stability during night shifts.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Education</h2>
+                <div class="experience-item">
+                    <h3>Lviv Polytechnic National University</h3>
+                    <div class="sub">B.S. in Computational Intelligence for Smart Systems</div>
+                    <div class="date">2024 — 2027</div>
+                </div>
+                <div class="experience-item">
+                    <h3>Technical College of NULP</h3>
+                    <div class="sub">Associate Degree in Computer Science</div>
+                    <div class="date">2021 — 2024</div>
+                </div>
+                <div class="experience-item">
+                    <h3>Hillel IT School</h3>
+                    <div class="sub">3D Environment & Prop Art</div>
+                    <p>Professional certification focused on environment art and prop creation for games.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+</div>
+
+</body>
+</html>
