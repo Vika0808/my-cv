@@ -39,7 +39,7 @@
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
         }
 
-        /* Оновлені стилі кнопок для мобільних */
+        /* Стилі для кнопок GitHub */
         .file-buttons {
             padding: 30px 40px 0;
             display: flex;
@@ -51,7 +51,7 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
             padding: 14px 28px;
             background: var(--accent);
             color: white;
@@ -61,22 +61,27 @@
             font-weight: 600;
             transition: all 0.2s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            min-width: 180px; /* Щоб кнопка була зручною для натискання */
-        }
-
-        .btn:active {
-            transform: scale(0.98); /* Ефект натискання на телефоні */
+            min-width: 200px;
         }
 
         .btn:hover {
             background: var(--accent-hover);
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
         }
 
         .btn-outline {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid var(--glass-border);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--accent);
         }
 
         header {
@@ -223,8 +228,8 @@
             .contact-grid { grid-template-columns: 1fr; }
             .pipeline-row { flex-direction: column; margin-bottom: 15px; }
             .pipeline-label { width: 100%; margin-bottom: 4px; }
-            .file-buttons { justify-content: center; padding: 25px 20px 0; gap: 10px; }
-            .btn { width: 100%; } /* На маленьких екранах кнопки на всю ширину */
+            .file-buttons { justify-content: center; padding: 25px 20px 0; }
+            .btn { width: 100%; }
         }
     </style>
 </head>
@@ -232,10 +237,10 @@
 
 <div class="cv-card">
     <div class="file-buttons">
-        <a href="portfolio.html" class="btn" download="portfolio.html">
+        <a href="https://vika0808.github.io/my-cv/portfolio.html" class="btn" target="_blank">
             <span>🎨</span> View Portfolio
         </a>
-        <a href="CV_Oryshchyn_Viktoriia.pdf" class="btn btn-outline" download="CV_Oryshchyn_Viktoriia.pdf" target="_blank">
+        <a href="https://raw.githubusercontent.com/Vika0808/my-cv/main/CV_Oryshchyn_Viktoriia.pdf" class="btn btn-outline" target="_blank">
             <span>📄</span> Download CV (PDF)
         </a>
     </div>
